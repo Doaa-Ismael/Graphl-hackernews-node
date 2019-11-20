@@ -15,8 +15,11 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 type Link {
   id: ID!
+  createdAt: DateTime!
   description: String!
   url: String!
   postedBy: User
@@ -54,6 +57,8 @@ type LinkEdge {
 enum LinkOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
   description_ASC
   description_DESC
   url_ASC
@@ -62,6 +67,7 @@ enum LinkOrderByInput {
 
 type LinkPreviousValues {
   id: ID!
+  createdAt: DateTime!
   description: String!
   url: String!
 }
@@ -81,6 +87,14 @@ input LinkScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   description: String
   description_not: String
   description_in: [String!]
@@ -196,6 +210,14 @@ input LinkWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   description: String
   description_not: String
   description_in: [String!]
